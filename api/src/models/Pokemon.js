@@ -8,5 +8,25 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  });
+    life:{
+      type: DataTypes.FLOAT
+    },
+    atack:{
+      type: DataTypes.FLOAT
+    },
+    defense:{
+      type: DataTypes.FLOAT
+    },
+    speed:{
+      type: DataTypes.FLOAT
+    },
+    height:{
+      type: DataTypes.FLOAT
+    },
+    weight:{
+      type: DataTypes.FLOAT
+    }
+  },
+    {timestamps:false}
+  );
 };
