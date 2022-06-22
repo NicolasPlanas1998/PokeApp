@@ -4,6 +4,11 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('pokemon', {
+    id:{
+      type: DataTypes.UUID, // Puedo poner que estos sean desde 40 para arriba cosa de que sean continuos con la API
+      primaryKey: true,
+      allowNull:false
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
