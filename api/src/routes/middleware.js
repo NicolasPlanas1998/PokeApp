@@ -1,7 +1,7 @@
 const URL_API = "https://pokeapi.co/api/v2/pokemon/"
 const axios = require('axios');
-const Pokemon = require('../models/Pokemon');
-const Type = require('../models/Type');
+const {Pokemon,Type} = require('../db')
+
 
 async function pokemonInfo (url){
     const pokemon = await axios.get(url)
@@ -69,6 +69,6 @@ module.exports = {
     pokemonInfo,
     getAPIpokemons,
     getDbPokemon,
-    getAll
+    getAll,
 
 } 
