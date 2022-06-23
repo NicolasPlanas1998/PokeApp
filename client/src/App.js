@@ -1,13 +1,16 @@
 import React from 'react'
 import './App.css';
-import {Route} from 'react-router-dom'
-import { Cards } from './components/Home/Cards';
+import {Route} from 'react-router-dom';
+import { Cards } from './components/Landingpage/Cards';
+import {Home} from './components/Landingpage/Home'
+import {Header} from './components/Header/Header'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Pokemon</h1>
-      <Route path="/cards" component={Cards} />
+    <div className="bg">
+      <Header/>
+      <Route path="/home" component={Home} />
+      {/* <Route path="/home/:name" element={<Cards/>} /> */}
     </div>
   );
 }

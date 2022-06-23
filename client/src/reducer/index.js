@@ -1,23 +1,22 @@
-import {GET_POKEMONS_BY_NAME,
-        GET_API_POKEMONS} from '../actions';
+import {GET_POKEMONS,ADD_SEARCH} from '../actions';
 
 const initialState = {
-    pokesNames: [],
-    pokesDetail: []
+    allPokemons: [],
+    search: []
 }
 
 export default function rootReducer(state = initialState, action){
     switch(action.type){
-        case GET_API_POKEMONS:
+        case GET_POKEMONS:
             return {
                 ...state,
-                pokesNames: action.payload.results }    
-        case GET_POKEMONS_BY_NAME:
-            return {
+                allPokemons: action.payload }
+        case ADD_SEARCH:
+            return{
                 ...state,
-                pokesDetail: {...state.pokesDetail, [action.payload.name]: action.payload} }
+                search: action.payload
+            }
         default:
              return state 
     }
-    
 }

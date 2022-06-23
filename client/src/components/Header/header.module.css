@@ -1,0 +1,28 @@
+/* LUEGO PERFECCIONO TODO EL ESTILO */
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+}
+#logo{
+    width: 150px;
+}
+.navContainer{
+    list-style: none;
+}
+.navLink{
+    display: inline-block;
+    padding: 30px;
+}
+.navLink a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: larger;
+}

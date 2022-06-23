@@ -66,9 +66,6 @@ async function getAll(){
 }
 
 module.exports = {
-    pokemonInfo,
     getAPIpokemons,
-    getDbPokemon,
     getAll,
-
 } 

@@ -1,8 +1,7 @@
 const {    
-    pokemonInfo,
     getAPIpokemons,
-    getDbPokemon,
-    getAll} = require('./middleware')
+    getAll
+    } = require('./middleware')
 const { Router } = require('express');
 const {Pokemon,Type} = require('../db')
 
@@ -50,7 +49,7 @@ router.get("/pokemons/:id", async (req,res)=>{
         res.send(error)
     }
 })
-// [ ] GET /types:
+//[ ] GET /types:
 // Obtener todos los tipos de pokemons posibles
 // En una primera instancia deberán traerlos desde pokeapi y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
 router.get("/types", async(req,res)=>{
@@ -100,14 +99,10 @@ router.post("/pokemons", async (req,res)=>{
         pokemonCreated.addType(typeDb)
         res.send("Successfully created")
     } catch (error) {
-        res.send(error)
-        
+        res.send(error)   
     }
-
 })
   
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-
-
 module.exports = router;
