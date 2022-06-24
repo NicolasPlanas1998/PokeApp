@@ -26,3 +26,12 @@
     font-weight: 700;
     font-size: larger;
 }
+
+#iconSearch{
+    margin-right: 6px;
+}
+#searcher{
+    height: 25px;
+    padding: 8px;
+    border-radius: 10px;
+}

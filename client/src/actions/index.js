@@ -1,18 +1,27 @@
 export const GET_POKEMONS = "GET_POKEMONS"
-export const ADD_SEARCH = "ADD_SEARCH"
-// export const GET_POKEMONS_BY_NAME = "GET_POKEMONS_BY_NAME"
-
+export const GET_TYPES = "GET_TYPES"
+export const FILTER_SEARCH = "FILTER_SEARCH"
 
 export function getPokemons() { 
     return function(dispatch) {
-    return fetch("http://localhost:3001/pokemons" )
-        .then(response => response.json())
-        .then(json => dispatch({ type: GET_POKEMONS, payload: json }));
-    };
+        return fetch("http://localhost:3001/pokemons" )
+            .then(response => response.json())
+            .then(json => dispatch({ type: GET_POKEMONS, payload: json }));
+        };
 }
-export function searchPokemon(pokemon){   
+export function searchPokemon(filterObj,pageObj){   
     return{
-        type: ADD_SEARCH,
-        payload: pokemon
+        type: FILTER_SEARCH,
+        payload: {
+            filter: filterObj,
+            page: pageObj
+        }
     }
+}
+export function getTypes(){
+    return function(dispatch){
+        return fetch("http://localhost:3001/types" )
+        .then(response => response.json())
+        .then(json => dispatch({ type: GET_TYPES, payload: json }));
+    };
 }

@@ -15,8 +15,8 @@ async function pokemonInfo (url){
         atack: obj.stats[1].base_stat,
         defense: obj.stats[2].base_stat,
         speed: obj.stats[5].base_stat, 
-        type: obj.types.map( el=>{return{ name:el.type.name}}),
-        img: obj.sprites.back_default
+        Types: obj.types.map( el=>{return{ name:el.type.name}}),
+        img: obj.sprites.front_default
     }
     return pokemonDetail
     //! Retorna:
@@ -31,7 +31,7 @@ async function pokemonInfo (url){
 }
 
 async function getAPIpokemons (){
-    const api = (await axios.get(URL_API)).data.results
+    const api = (await axios.get(URL_API+"?limit=40")).data.results
     const apiDetail =  api.map( el =>{
         return {
             name : el.name,

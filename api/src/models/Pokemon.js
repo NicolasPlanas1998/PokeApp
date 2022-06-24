@@ -31,6 +31,10 @@ module.exports = (sequelize) => {
     },
     weight:{
       type: DataTypes.FLOAT
+    },
+    pokeApp:{
+      type: DataTypes.BOOLEAN,
+      defaultValue:true
     }
   },
     {timestamps:false}

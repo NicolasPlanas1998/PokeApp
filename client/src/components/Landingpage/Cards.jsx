@@ -2,12 +2,8 @@ import  { useEffect } from 'react'
 import s from './landingpage.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPokemons } from '../../actions'
-import {Card}  from '../Card/Card'
+import {Card}  from './Card/Card'
 
-//Si  mi reducer dice tiene length es porque se busco algo,
-//Entonces solo renderizo ese
-
-//El reducer tendra length si se busca en search
 export function Cards() {
     
     const dispatch = useDispatch()
@@ -16,16 +12,21 @@ export function Cards() {
         dispatch(getPokemons())
     },[dispatch])
 
-    let pokemon = useSelector(state => state.search)
-    let arrNames = useSelector(state => state.allPokemons)
-    if(pokemon.length) arrNames= pokemon
+    let renderCards = (useSelector(state => state.allPokemons)).slice(0,12)
+    let {filter,page} = useSelector(state => state.filterSearch)
+
+    if(page)renderCards = page
+    if(Array.isArray(filter) && !page) renderCards = filter
+    
+
     return (
         <>
             <h1>Cards</h1>
-            {arrNames.length? 
+            {renderCards.length? 
             <div className={s.containerCards}>
-                {arrNames.map(el=>(
+                {renderCards.map(el=>(
                     <Card
+                        key={el.id}
                         id={el.id}
                         name={el.name}
                         life={el.life}
@@ -35,7 +36,7 @@ export function Cards() {
                         atack= {el.atack}
                         speed= {el.speed}
                         defense= {el.defense}
-                        type= {el.type}
+                        type= {el.Types}
                         img= {el.img}
                     />
                 ))}

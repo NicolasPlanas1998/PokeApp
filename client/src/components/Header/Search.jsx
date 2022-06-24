@@ -1,7 +1,8 @@
 import {React,useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchPokemon } from '../../actions'
-// import s from './header.module.css' comento porque no lo estoy usando aun
+import s from './header.module.css' 
+
 
 export function Search(){
 
@@ -14,19 +15,20 @@ export function Search(){
     function enter(e){
         setSearch(e.target.value)
         if(e.code === "Enter"){
-            const pokemon = arrPokemons.filter(el=> el.name === search)
-            if(!search){dispatch(searchPokemon([]))}
+            const pokemons = arrPokemons.filter(el=> el.name === search)
+            if(!search){dispatch(searchPokemon(pokemons))}
             else{
-                if(pokemon.length) dispatch(searchPokemon(pokemon))
+                if(pokemons.length) dispatch(searchPokemon(pokemons))
                 else {
                     alert("Poke no encontrado(Agregar una alerta linda despues)")
-                    dispatch(searchPokemon([]))
+                    dispatch(searchPokemon(pokemons))
                 }
             }
         }
     }
     return(
         <div>
-            <input onKeyUp={e=>enter(e)} name="searcher"   type="search" />
+            <i className="fas fa-search" id={s.iconSearch}></i>
+            <input onKeyUp={e=>enter(e)} id={s.searcher} name="searcher" type="search" placeholder='Search pokemon '/>
         </div>
     )}

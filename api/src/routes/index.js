@@ -17,7 +17,7 @@ const router = Router();
 // Debe devolver solo los datos necesarios para la ruta principal
 router.get("/pokemons", async(req,res)=>{
     let {name} = req.query;
-    const pokemons = await getAll() //!DEBERIA SER ALLPOKEMONS, LO MODIFICO CUANDO ARREGLE LA DB
+    const pokemons = await getAll()
     try {
         if(!name) res.send(pokemons)
         else{
@@ -26,7 +26,7 @@ router.get("/pokemons", async(req,res)=>{
             else res.status(404).send(`Pokemon: ${name} was not found`)
         }       
     } catch (error) {
-        res.status(400).send(error) // Modificar esto con una pestana en react de error
+        res.status(400).send(error) 
     }
 })
 
@@ -56,8 +56,8 @@ router.get("/types", async(req,res)=>{
     const pokemons = await getAPIpokemons()
     let allTypes = []
     pokemons.forEach(el=>{
-        for(let i=0; el.type.length > i; i++){
-            if(!allTypes.includes(el.type[i].name)) allTypes.push(el.type[i].name)
+        for(let i=0; el.Types.length > i; i++){
+            if(!allTypes.includes(el.Types[i].name)) allTypes.push(el.Types[i].name)
         }
     })
     allTypes.forEach(el=>{
@@ -81,7 +81,7 @@ router.post("/pokemons", async (req,res)=>{
         speed,
         height,
         weight,
-        type   
+        Types   
     } = req.body
     try {
         let pokemonCreated = await Pokemon.create({
@@ -94,7 +94,7 @@ router.post("/pokemons", async (req,res)=>{
             weight
         })
         let typeDb = await Type.findAll({
-            where: {name: type}
+            where: {name: Types}
         }) // me parece totalmente al pedo esta linea //! Fijarme si la puedo borrar
         pokemonCreated.addType(typeDb)
         res.send("Successfully created")
