@@ -6,7 +6,10 @@ import {GET_POKEMONS,
 const initialState = {
     allPokemons: [],
     allTypes: [],
-    filterSearch: []
+    filterSearch: {
+        filter:[],
+        page:[]
+    }
 }
 
 export default function rootReducer(state = initialState, action){

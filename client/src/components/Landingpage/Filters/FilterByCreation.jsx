@@ -10,7 +10,7 @@ export function FilterByCreation(){
         let pokeAppCollction = []
         let nintendoCollction = []
         
-        if(selected === "any"){dispatch(searchPokemon(pokemons))}
+        if(selected === "any"){dispatch(searchPokemon([],[]))}
         else{
             pokemons.forEach(el=>{
                 let properties = Object.keys(el)

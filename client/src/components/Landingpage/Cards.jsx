@@ -5,7 +5,6 @@ import { getPokemons } from '../../actions'
 import {Card}  from './Card/Card'
 
 export function Cards() {
-    
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -15,8 +14,9 @@ export function Cards() {
     let renderCards = (useSelector(state => state.allPokemons)).slice(0,12)
     let {filter,page} = useSelector(state => state.filterSearch)
 
-    if(page)renderCards = page
-    if(Array.isArray(filter) && !page) renderCards = filter
+    
+    if(page && page.length)renderCards = page
+    else if(filter.length) renderCards = filter.slice(0,12)
     
 
     return (
@@ -33,7 +33,7 @@ export function Cards() {
                         height={el.height}
                         weight= {el.weight}
                         hp = {el.life}
-                        atack= {el.atack}
+                        attack= {el.attack}
                         speed= {el.speed}
                         defense= {el.defense}
                         type= {el.Types}

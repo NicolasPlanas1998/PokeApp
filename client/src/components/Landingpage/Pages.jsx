@@ -9,7 +9,7 @@ export function Pages(){
     let pages = []
     let pokemons = []
     
-    if(Array.isArray(filter) && filter.length > 0 ) pokemons = filter
+    if(filter.length) pokemons = filter
     else{ pokemons = allPokemons}
 
     //! Total pages  

@@ -11,12 +11,14 @@ export function Search(){
 
 
     const arrPokemons = useSelector(state => state.allPokemons)
-
+    //! ARREGLAR, REEMPLAZAR POR LA RUTA QUE CREE DEL BACK
     function enter(e){
         setSearch(e.target.value)
         if(e.code === "Enter"){
             const pokemons = arrPokemons.filter(el=> el.name === search)
-            if(!search){dispatch(searchPokemon(pokemons))}
+            if(!search){
+                dispatch(searchPokemon([],[]))
+                }
             else{
                 if(pokemons.length) dispatch(searchPokemon(pokemons))
                 else {

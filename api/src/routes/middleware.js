@@ -12,7 +12,7 @@ async function pokemonInfo (url){
         height: obj.height,
         weight: obj.weight,
         life: obj.stats[0].base_stat,
-        atack: obj.stats[1].base_stat,
+        attack: obj.stats[1].base_stat,
         defense: obj.stats[2].base_stat,
         speed: obj.stats[5].base_stat, 
         Types: obj.types.map( el=>{return{ name:el.type.name}}),

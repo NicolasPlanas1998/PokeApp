@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./card.module.css"
 
-export function Card({name, id, life, img,weight, type}){
+export function Card({name, id, life, img,weight, type, attack}){
 
     let typeId = type[0].name
 
@@ -19,6 +19,10 @@ export function Card({name, id, life, img,weight, type}){
                 <div>
                     <p><i className={`${s.iconStats} fas fa-weight-hanging`}></i>Weight: </p>
                     <span>{weight}</span>
+                </div>
+                <div>
+                    <p><i class="fas fa-axe-battle"></i>Attack</p>
+                    <span>{attack}</span>
                 </div>
                 <div>
                     <p><i className={`${s.iconStats} fas fa-layer-group`}></i>Type: </p>

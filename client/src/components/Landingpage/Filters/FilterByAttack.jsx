@@ -1,47 +1,38 @@
 import { useDispatch, useSelector } from "react-redux"
 import { searchPokemon } from "../../../actions/index"
 
-export function FilterByName(){
+export function FilterByAttack(){
     const dispatch = useDispatch()
     const pokemons =  useSelector(state => state.allPokemons)
     const {filter} =  useSelector(state => state.filterSearch)
     
     let pokemonsToOrder = []
 
-    function AtoZ(){
+    function higher(){
         if(filter.length) pokemonsToOrder = filter
         else pokemonsToOrder = pokemons
         let pokemonsOrdered = pokemonsToOrder.sort(function (a,b){
-                if(b.name > a.name){
-                    return -1
-                }
-                if(a.name > b.name){
-                    return 1
-                }return 0
+                return  b.attack - a.attack 
             })
         dispatch(searchPokemon(pokemonsOrdered))
+
     }
-    function ZtoA(){
+    function lower(){
         if(filter.length) pokemonsToOrder = filter
         else pokemonsToOrder = pokemons
         let pokemonsOrdered = pokemonsToOrder.sort(function (a,b){
-                if(b.name > a.name){
-                    return 1
-                }
-                if(a.name > b.name){
-                    return -1
-                }return 0
+                return a.attack - b.attack
             })
         dispatch(searchPokemon(pokemonsOrdered))
     }
     return(
         <div>
-            {/* <label htmlFor="">Name</label> */}
-            <button onClick={AtoZ}>
-                <i className="fas fa-sort-alpha-up"></i>
+           <p>Attack: </p>
+            <button onClick={higher}>
+                Higher
             </button>
-            <button onClick={ZtoA}>
-                <i className="fas fa-sort-alpha-down-alt"></i>
+            <button onClick={lower}>
+                Lower
             </button>
         </div>
     )

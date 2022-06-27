@@ -25,3 +25,12 @@ export function getTypes(){
         .then(json => dispatch({ type: GET_TYPES, payload: json }));
     };
 }
+export function postPokemon(data){
+    return function (){
+        return fetch("http://localhost:3001/pokemons",{
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        })
+    }
+}

@@ -1,16 +1,19 @@
 import React from 'react'
 import './App.css';
-import {Route} from 'react-router-dom';
-import { Cards } from './components/Landingpage/Cards';
+import {Route,Routes} from 'react-router-dom';
 import {Home} from './components/Landingpage/Home'
 import {Header} from './components/Header/Header'
+import {Form} from './components/Form/Form'
 
 function App() {
   return (
     <div className="bg">
       <Header/>
-      <Route path="/home" component={Home} />
-      {/* <Route path="/home/:name" element={<Cards/>} /> */}
+  
+      <Routes>
+        <Route path="/home" element={<Home/>} />
+        <Route path="/form" element= {<Form/>}/>
+      </Routes>
     </div>
   );
 }
