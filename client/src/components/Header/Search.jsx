@@ -29,8 +29,8 @@ export function Search(){
         }
     }
     return(
-        <div>
-            <i className="fas fa-search" id={s.iconSearch}></i>
+        <div className={s.containerSearch}>
             <input onKeyUp={e=>enter(e)} id={s.searcher} name="searcher" type="search" placeholder='Search pokemon '/>
+            <i className="fas fa-search" id={s.iconSearch}></i>
         </div>
     )}

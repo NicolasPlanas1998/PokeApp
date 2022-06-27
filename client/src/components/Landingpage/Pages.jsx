@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-// import s from './landingpage.module.css'
+import s from './landingpage.module.css'
 import { searchPokemon } from "../../actions"
 
 export function Pages(){
@@ -15,7 +15,7 @@ export function Pages(){
     //! Total pages  
     const totalPages = Math.ceil((pokemons.length) /12)
     for(let i = 1; totalPages >= i;i++){
-        pages.push(<input key={i} type="button" onClick={e=>handlePages(e)} value={i} />)
+        pages.push(<input className={s.page} key={i} type="button" onClick={e=>handlePages(e)} value={i} />)
     }
 
     function handlePages(e){
@@ -26,8 +26,12 @@ export function Pages(){
         dispatch(searchPokemon(filter,pokemonsPerPage))
     }
      return(
-         <div>
+         <div className={s.containerPages}>
+            <div>
+            <a className= {s.move}href=""><i class="fas fa-caret-left"></i></a>
             {pages}
+            <a className= {s.move} href=""><i class="fas fa-caret-right"></i></a>
+            </div>
          </div>
      )
 

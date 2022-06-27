@@ -21,16 +21,16 @@ export function Card({name, id, life, img,weight, type, attack}){
                     <span>{weight}</span>
                 </div>
                 <div>
-                    <p><i class="fas fa-axe-battle"></i>Attack</p>
+                    <p><i className={`${s.iconStats} fas fa-shield`}></i>Attack</p>
                     <span>{attack}</span>
                 </div>
                 <div>
                     <p><i className={`${s.iconStats} fas fa-layer-group`}></i>Type: </p>
-                    {type?type.map(t=>(
-                        <span>{t.name}
-                     
-                        </span>
-                    )):<p> . . .</p>}
+                    {type?type.map(t=>{
+                        let typeHtml =  t.name + " "
+                        return ( typeHtml)
+                    }
+                   ):<p> . . .</p>}
                 </div>
             </div>
         </div>

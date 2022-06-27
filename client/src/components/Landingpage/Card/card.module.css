@@ -31,12 +31,11 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 #fire{
-    background-image: url('../../../images/fire.jpeg');
+    background-image: url('../../../images/bg-fire.jpeg');
     /* background-color: red; */
 }
 #fire .containerImg {
-    background-image: url('../../../images/bg-fire.jpeg');
-    /* background-color: red; */
+    background-image: url('../../../images/fire.jpeg');
 }
 #water{
     background-image: url('../../../images/bg-water.jpeg')
@@ -45,16 +44,46 @@
     background-image: url('../../../images/water.jpg')
 }
 #grass{
-    background-image: url('../../../images/bg-grass.jpeg')
+    background-image: url('../../../images/grass.jpg')
 }
 #grass .containerImg{
-    background-image: url('../../../images/grass.jpg');
+    background-image: url('../../../images/bg-grass.jpeg');
 }
 #bug{
+    background-image: url('../../../images/bg-bug.jpeg')
+}
+#bug .containerImg{
     background-image: url('../../../images/bugs.jpg')
 }
 #normal{
     background-image: url('../../../images/sky.jpg')
+}
+#normal .containerImg{
+    background-image: url('../../../images/bg-normal.webp')
+}
+#poison{
+    background-image: url('../../../images/poision.jpeg')
+}
+#poison .containerImg{
+    background-image: url('../../../images/bg-poison.jpeg')
+}
+#ground{
+    background-image: url('../../../images/ground.webp')
+}
+#ground .containerImg{
+    background-image: url('../../../images/bg-ground.jpg')
+}
+#electric{
+    background-image: url('../../../images/electric.jpg')
+}
+#electric .containerImg{
+    background-image: url('../../../images/download.jpeg')
+}
+#fairy{
+    background-image: url('../../../images/fairy.jpeg')
+}
+#fairy .containerImg{
+    background-image: url('../../../images/bg-fairy.jpeg')
 }
 
 .containerStats{

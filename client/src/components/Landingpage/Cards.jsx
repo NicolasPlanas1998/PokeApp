@@ -21,7 +21,6 @@ export function Cards() {
 
     return (
         <>
-            <h1>Cards</h1>
             {renderCards.length? 
             <div className={s.containerCards}>
                 {renderCards.map(el=>(
