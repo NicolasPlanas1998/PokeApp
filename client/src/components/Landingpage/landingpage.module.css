@@ -15,7 +15,7 @@
 .containerPages > div{
     background-color: #083810;
     border-radius: 10px;
-    margin-bottom: px;
+    margin-bottom: 10px;
 }
 .page{
     height: 30px;
@@ -28,8 +28,18 @@
     box-shadow: none;
     border: none;
 }
+.page:hover{
+    cursor: pointer;
+}
 .move{
-    color: white;
+    color: rgb(255, 255, 255);
+    border-radius: 10px 0 0 10px;
     padding: 10px;
     font-size: 18px;
+    border: none;
+    font-weight: bolder;
+    background-color: transparent;
+}
+.move:hover{
+    cursor: pointer;
 }

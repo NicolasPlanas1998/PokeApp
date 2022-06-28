@@ -1,0 +1,115 @@
+.form{
+    text-align: center;
+}
+.form h1{
+    text-align: center;
+    font-weight: bold;
+    background:linear-gradient(90deg, #9e5efe, #286ea1df, #7c27adb3);
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: gradient 9s ease infinite;
+    transition: 0.3s;
+}
+.name{
+    text-align: center;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background-color: rgba(64, 103, 243, 0.157);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: none;
+    color: #2b61f6;
+    font-weight: bold;
+    font-size: x-large;
+    border-radius: 15px;
+    transition: .5s;
+} 
+.name:hover{
+    box-shadow: none;
+    background-color: rgba(64, 103, 243, 0.245);
+}
+.inputs{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
+/* STATS */
+.stats{
+    width: 230px;
+}
+legend{
+    font-size: large;
+    text-align: center;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+fieldset{
+   border: 1px solid #020e2f;
+   backdrop-filter: blur(3px);
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.stats div{
+    display: grid;
+    text-align: start;
+    margin: 6px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    grid-template-rows:1fr 1fr;
+    grid-template-columns: 1fr ;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-weight: bold;
+}
+.stats div span{
+    grid-area: 1/2 ;
+}
+/* TYPES */
+.types{
+    width: 160px;
+    height: 315px;
+    text-align: start;
+}
+.types div{
+    font-weight: bold;
+    padding: 2.5px;
+}
+.types div label {
+    margin-left: 2px;
+}
+.formBtn{
+    padding: 15px;
+    margin: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold; 
+    border: none;
+    font-size: large;
+    background-color: rgba(0, 25, 84, 0.918);
+    color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+.formBtn:focus{
+    outline: none; box-shadow: none;
+}
+.formBtn:hover{
+    cursor: pointer;
+   
+}

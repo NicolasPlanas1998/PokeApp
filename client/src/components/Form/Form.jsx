@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { postPokemon } from "../../actions"
+import s from './form.module.css'
 
 export function Form(){
 
@@ -37,42 +38,55 @@ export function Form(){
     }
 
     return(
-        <div>
-            <h1>Create New Pokemon</h1>
+        <div className={s.form}>
+            <h1>Build your pokemon</h1>
             <form onSubmit={e=>handleSubmit(e)}>
-                <label htmlFor="name">Name: </label>
-                <input onChange={e=>handleValue(e)} type="text" name="name" id="name" />
-                <fieldset>
-                    <legend>Stats:</legend>
-                    <label htmlFor="life">Life: </label>
-                    <input onChange={e=>handleValue(e)} type="range" name="life" id="life" min="1" max="150" />
-                    <span>{value.life}</span>
-                    <label htmlFor="attack">Attack: </label>
-                    <input onChange={e=>handleValue(e)} type="range" name="attack" id="attack" min="1" max="150" />
-                    <span>{value.attack}</span>
-                    <label htmlFor="defense">Defense: </label>
-                    <input onChange={e=>handleValue(e)} type="range" name="defense" id="defense" min="1" max="150" />
-                    <span>{value.defense}</span>
-                    <label htmlFor="speed">Speed: </label>
-                    <input onChange={e=>handleValue(e)} type="range" name="speed" id="speed" min="1" max="150" />
-                    <span>{value.speed}</span>
-                    <label htmlFor="height">Height: </label>
-                    <input onChange={e=>handleValue(e)} type="range" name="height" id="height" min="1" max="150" />
-                    <span>{value.height}</span>
-                    <label htmlFor="weight">Weight: </label>
-                    <input onChange={e=>handleValue(e)} type="range" name="weight" id="weight" min="1" max="150" />
-                    <span>{value.weight}</span>
-                </fieldset>
-                <fieldset>
-                    <legend>Types:</legend>
-                    {types.map(el=>(
+            <input onChange={e=>handleValue(e)} className={s.name}type="text" name="name" id="name" placeholder="Name" required />
+                <div className={s.inputs}>
+                    <fieldset className={s.stats}>
+                        <legend>Stats</legend>
                         <div>
-                            <input onChange={e=>handleValue(e)} type="checkbox" value={el} name="type" key={el+"form"}/>
-                            <label htmlFor={el}>{el}</label>
+                            <label htmlFor="life">Life: </label>
+                            <input onChange={e=>handleValue(e)} type="range" name="life" id="life" min="1" max="150" />
+                            <span>{value.life}</span>
                         </div>
-                    ))}
-                </fieldset>
-            <input type="submit" />
+                        <div>
+                            <label htmlFor="attack">Attack: </label>
+                            <input onChange={e=>handleValue(e)} type="range" name="attack" id="attack" min="1" max="150" />
+                            <span>{value.attack}</span>
+                        </div>
+                        <div>
+                            <label htmlFor="defense">Defense: </label>
+                            <input onChange={e=>handleValue(e)} type="range" name="defense" id="defense" min="1" max="150" />
+                            <span>{value.defense}</span>
+                        </div>
+                        <div>
+                            <label htmlFor="speed">Speed: </label>
+                            <input onChange={e=>handleValue(e)} type="range" name="speed" id="speed" min="1" max="150" />
+                            <span>{value.speed}</span>
+                        </div>
+                        <div>
+                            <label htmlFor="height">Height: </label>
+                            <input onChange={e=>handleValue(e)} type="range" name="height" id="height" min="1" max="150" />
+                            <span>{value.height}</span>
+                        </div>
+                        <div>
+                            <label htmlFor="weight">Weight: </label>
+                            <input onChange={e=>handleValue(e)} type="range" name="weight" id="weight" min="1" max="150" />
+                            <span>{value.weight}</span>
+                        </div>
+                    </fieldset>
+                    <fieldset className={s.types}>
+                        <legend>Types</legend>
+                        {types.map(el=>(
+                            <div key={el+"form"}>
+                                <input onChange={e=>handleValue(e)} type="checkbox" value={el} id={el} name="type" />
+                                <label htmlFor={el}>{el}</label>
+                            </div>
+                        ))}
+                    </fieldset>
+                </div>
+            <input className={s.formBtn} type="submit"  value="Create"/>
             </form>
         </div>
     )

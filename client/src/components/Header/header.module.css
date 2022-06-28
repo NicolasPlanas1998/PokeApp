@@ -67,4 +67,103 @@
 .user:hover{
     color: #0c2c47;
     background-color: white;
+    cursor: pointer;
+}
+
+/* MODAL */
+.containerModal{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.499);
+    backdrop-filter: blur(0.9px);
+    top:0px;
+    width: 100vw;
+    height: 100vh;
+    
+}
+.modal{
+    display: flex;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.397) 0px 30px 60px -30px, rgba(10, 37, 64, 0.647) 0px -2px 6px 0px inset;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 30px;
+    border-radius: 40px;
+    background-color: #ffffff;;
+    background-image: url(../../images/form.jpeg);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    width: 400px;
+    height: 300px;
+}
+.close{
+    position: absolute;
+    width: 367px;
+    height: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.close i {
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 50px;
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+.close i:hover {
+    cursor: pointer;
+}
+.modal label{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.containerInput{
+    display: flex;
+    flex-direction: column;
+}
+.modal input{
+    padding: 5px;
+    background-color: transparent;
+    font-size: 1.1rem;
+    margin: 5px;
+    border: none;
+   
+    width: 120px;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.modal input:focus{
+    outline: none;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+#submitForm{
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    width: 100px;
+    padding:5px;
+    transition: 1s;
+}
+#submitForm:hover{
+    cursor: pointer;
+    width: 103px;
+}
+
+.none{
+    display: none;
+}
+.flex{
+    display: flex;
+}
+
+.error{
+    padding-bottom: 7px;
+    color: red;
+    font-size: small;
 }

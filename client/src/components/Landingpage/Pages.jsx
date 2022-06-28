@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
 import s from './landingpage.module.css'
 import { searchPokemon } from "../../actions"
+import { useState } from 'react'
 
 export function Pages(){
+
+    const [actualPage, setActualPage] = useState(1)
     const allPokemons =  useSelector(state => state.allPokemons)
     const {filter} = useSelector(state => state.filterSearch)
     const dispatch = useDispatch()  
@@ -17,9 +20,23 @@ export function Pages(){
     for(let i = 1; totalPages >= i;i++){
         pages.push(<input className={s.page} key={i} type="button" onClick={e=>handlePages(e)} value={i} />)
     }
+    function handleSequence(arg){
+        let pageNumber
+        if(arg === "next" ) { 
+            pageNumber = actualPage + 1
+            setActualPage(parseInt(pageNumber))
+        }else if(arg === "prev" ){ 
+            pageNumber = actualPage - 1
+            setActualPage(parseInt(pageNumber))}
 
+        let firstIndex = (pageNumber * 12) - 12 
+        let lastIndex = pageNumber * 12
+        let pokemonsPerPage = pokemons.slice(firstIndex,lastIndex)
+        if(actualPage >= 1 && actualPage <= totalPages)dispatch(searchPokemon(filter,pokemonsPerPage))
+    }
     function handlePages(e){
-        let pageNumber= e.target.value
+        let pageNumber = e.target.value
+        setActualPage(parseInt(pageNumber))
         let firstIndex = (pageNumber * 12) - 12 
         let lastIndex = pageNumber * 12
         let pokemonsPerPage = pokemons.slice(firstIndex,lastIndex)
@@ -28,9 +45,9 @@ export function Pages(){
      return(
          <div className={s.containerPages}>
             <div>
-            <a className= {s.move}href=""><i class="fas fa-caret-left"></i></a>
+            <input type="button" onClick={() => handleSequence("prev")} value="<" className={s.move}/>
             {pages}
-            <a className= {s.move} href=""><i class="fas fa-caret-right"></i></a>
+            <input type="button" onClick={()=> handleSequence("next")} value=">" className={s.move}/>
             </div>
          </div>
      )
