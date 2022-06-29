@@ -9,7 +9,7 @@ export function Form(){
     const types = useSelector(state => state.allTypes)
     
     const [value, setValue] = useState({
-        name:'', //si o si minuscula
+        name:'', 
         life: 50,
         attack: 50,
         defense:50,

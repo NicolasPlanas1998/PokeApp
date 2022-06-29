@@ -5,11 +5,6 @@ const {
 const { Router } = require('express');
 const {Pokemon,Type} = require('../db')
 
-// const {Pokemon, Property} = require('./db.js');
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
-
-
 const router = Router();
 
 // [ ] GET /pokemons:
@@ -29,7 +24,6 @@ router.get("/pokemons", async(req,res)=>{
         res.status(400).send(error) 
     }
 })
-
 
 // [ ] GET /pokemons/{idPokemon}:
 // Obtener el detalle de un pokemon en particular

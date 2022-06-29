@@ -1,10 +1,13 @@
 import s from './header.module.css' 
 import React,{useState} from 'react'
 import { Navigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { log } from '../../actions'
 
 
 export function Modal(){
 
+    const dispatch = useDispatch()
     const [error, setError] = useState({
         username:'',
         password:''
@@ -31,6 +34,7 @@ export function Modal(){
         if(input.username === "SoyHenry" && input.password === "123456"){
             setlog(true)
             setClassName("none")
+            dispatch(log(true))
         }
         else{
             if(input.username !== "SoyHenry") setError({username:'Username is not valid'})
@@ -38,12 +42,10 @@ export function Modal(){
         }
     }
 
-
-
     return(
         <div className={`${s.containerModal} ${s[className]} `}>
            <div className={s.modal}>
-                <div onSubmit={handleClose} className={s.close}>
+                <div onClick={handleClose} className={s.close}>
                     <i className="fas fa-times"></i>
                 </div>
                 <h1>Log In</h1>

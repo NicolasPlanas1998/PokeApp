@@ -1,6 +1,7 @@
 import {GET_POKEMONS,
         FILTER_SEARCH,
         GET_TYPES,
+        LOG
     } from '../actions';
 
 const initialState = {
@@ -8,8 +9,8 @@ const initialState = {
     allTypes: [],
     filterSearch: {
         filter:[],
-        page:[]
-    }
+        page:[] },
+    logIn: false
 }
 
 export default function rootReducer(state = initialState, action){
@@ -18,12 +19,14 @@ export default function rootReducer(state = initialState, action){
             return {...state, allPokemons: action.payload }
         case GET_TYPES:
             return {...state, allTypes: action.payload }
+        case LOG:
+            return {...state, logIn: action.log }
         case FILTER_SEARCH:
             return{...state, filterSearch: {
                 filter: action.payload.filter,
                 page: action.payload.page
             } }
         default:
-             return state 
+             return state
     }
 }

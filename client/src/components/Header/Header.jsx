@@ -5,10 +5,12 @@ import s from './header.module.css'
 import { Filters } from './Filters/Filters'
 import { Link } from 'react-router-dom'
 import { Modal } from './Modal'
+import { useSelector } from 'react-redux'
 
 export function Header(){
 
     const [modal, setModal] = useState(false)
+    const logIn = useSelector(state => state.logIn)
 
     function handleModal(){
         if(modal === false) setModal(true)
@@ -23,7 +25,10 @@ export function Header(){
                 <Filters />
             </div>
             <div className={s.user}>
-                <i onClick={handleModal} className="fas fa-user"></i>
+                {logIn ?
+                 <i class="fa-solid fa-user-check"></i>
+                 :
+                 <i onClick={handleModal} className="fas fa-user"></i> }
                 {/* <Link className={s.user} to="/form" ><i className="fas fa-user"></i></Link> */}
             </div>
         </header>

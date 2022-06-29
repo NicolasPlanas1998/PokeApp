@@ -5,19 +5,23 @@
     color: white;
     width: 200px;
     height: 300px;
-    padding: 10px;
+    padding: 5px;
+    padding-bottom: 0;
     margin: 4px;
-    /* text-align: center; */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    text-align: center;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
 .titlePokemom{
     text-transform: uppercase;
     margin-top: 0;
+    margin: 0;
     font-size: 1.1rem;
 }
 .containerImg{
@@ -27,7 +31,7 @@
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
-
+    text-align: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 #fire{
@@ -37,12 +41,24 @@
 #fire .containerImg {
     background-image: url('../../../images/fire.jpeg');
 }
+#fire .containerStats{
+    color: rgb(99, 16, 16);
+    
+}
 #water{
     background-image: url('../../../images/bg-water.jpeg')
 }
 #water .containerImg{
     background-image: url('../../../images/water.jpg')
 }
+#water .containerStats{
+    color: rgb(63, 65, 164);
+    backdrop-filter: blur(2px);
+}
+#water .impStats{
+   color: black;
+}
+
 #grass{
     background-image: url('../../../images/grass.jpg')
 }
@@ -70,12 +86,19 @@
 #ground{
     background-image: url('../../../images/ground.webp')
 }
+#ground .impStats{
+    color: black;
+}
+#ground .titlePokemom{
+    color: black;
+}
 #ground .containerImg{
     background-image: url('../../../images/bg-ground.jpg')
 }
 #electric{
     background-image: url('../../../images/electric.jpg')
 }
+
 #electric .containerImg{
     background-image: url('../../../images/download.jpeg')
 }
@@ -91,15 +114,17 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    margin: 0px;
 }
 .containerStats > div{
     display: flex;
     align-items: center;
 }
 .iconStats{
-    font-size: small;
-    margin-right: 3px;
+    font-size: medium;
+    margin-right: 5px;
 }
+
 .containerStats p{
     margin: 5px;
     font-weight: bold;
@@ -107,4 +132,38 @@
 }
 .containerStats span{
     text-decoration: none!important;
+}
+.impStats{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+    margin-top: 0px;
+    width: 100%;
+    font-weight: bold;
+}
+.imp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.sword{
+    width: 22px;
+}
+.heart{
+    color: rgb(190, 26, 26);
+    font-size: large;
+}
+.defense{
+    color: rgb(16, 30, 91);
+    font-size: large;
+}
+.type{
+    text-align: ce;
+    border: 1px solid black;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    text-transform: uppercase;
+
 }

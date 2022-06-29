@@ -1,6 +1,7 @@
 export const GET_POKEMONS = "GET_POKEMONS"
 export const GET_TYPES = "GET_TYPES"
 export const FILTER_SEARCH = "FILTER_SEARCH"
+export const LOG = "LOG"
 
 export function getPokemons() { 
     return function(dispatch) {
@@ -32,5 +33,11 @@ export function postPokemon(data){
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify(data)
         })
+    }
+}
+export function log(payload){
+    return{
+        type: LOG,
+        log: payload
     }
 }
