@@ -1,45 +1,56 @@
-/* Cards */
-.containerCards{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    flex-wrap: wrap;
+.bgLanding{
+    height: 100vh;
 }
-/* Pages  */
-.containerPages{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
-.containerPages > div{
-    background-color: #083810;
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.container img{
+    width: 500px;
+}
+/* .containerBtn{
+    padding-bottom: 100px;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+} */
+.containerBtn button{
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
     border-radius: 10px;
-    margin-bottom: 10px;
+    background-color: #8BC6EC;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    text-decoration: none;
 }
-.page{
-    height: 30px;
-    width: 40px;
-    background-color: #083810;
+
+.containerBtn button:hover{
+    cursor: pointer;
+}
+
+.link{
+    box-shadow: none;
+    text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: large;
-
+    padding: 50px;
+    background-image: url("../../images//pokeBallLanding.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.link:focus{
     box-shadow: none;
-    border: none;
-}
-.page:hover{
-    cursor: pointer;
-}
-.move{
-    color: rgb(255, 255, 255);
-    border-radius: 10px 0 0 10px;
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    font-weight: bolder;
-    background-color: transparent;
-}
-.move:hover{
-    cursor: pointer;
+    color: rgba(236, 236, 236, 0.548);
 }
