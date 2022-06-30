@@ -9,10 +9,13 @@ export function Search(){
     const dispatch = useDispatch()
     const [search, setSearch] = useState('')
 
-
     const arrPokemons = useSelector(state => state.allPokemons)
-    //! ARREGLAR, REEMPLAZAR POR LA RUTA QUE CREE DEL BACK
+    // Se podria hacer tambien con la ruta del back, dejarlo asi por si me lo preguntan
+    // total se arreglarlo:
+    // 1 Crear nueva action ,
+    // 2 Nuevo reducer y traerlo aca 
     function enter(e){
+        // console.log(window.location.href)
         setSearch(e.target.value)
         if(e.code === "Enter"){
             const pokemons = arrPokemons.filter(el=> el.name === search)

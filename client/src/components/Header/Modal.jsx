@@ -1,24 +1,26 @@
 import s from './header.module.css' 
 import React,{useState} from 'react'
 import { Navigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { log } from '../../actions'
 
 
 export function Modal(){
 
     const dispatch = useDispatch()
+    
+    const [className, setClassName] = useState("flex")
+    const logged = useSelector(state => state.logIn)
     const [error, setError] = useState({
         username:'',
         password:''
     })
-    const [className, setClassName] = useState("flex")
-    const [loggedIn, setlog] = useState(false)
     const [input, setInput] = useState({
         username:'',
         password:'',
-        
     })
+
+
     function handleChange(e){
         setInput({
             ...input,
@@ -32,7 +34,6 @@ export function Modal(){
      function handleSubmit(e){
         e.preventDefault()
         if(input.username === "SoyHenry" && input.password === "123456"){
-            setlog(true)
             setClassName("none")
             dispatch(log(true))
         }
@@ -50,27 +51,27 @@ export function Modal(){
                 </div>
                 <h1>Log In</h1>
                 <form onSubmit={e=>handleSubmit(e)}>
-                <label htmlFor="username">User</label>
-                <div className={s.containerInput}>
-                    <div>
-                        <i className="fas fa-user"></i>
-                        <input onChange={e=>handleChange(e)} type="text" name="username" id="username" placeholder='Username' required/>
+                    <label htmlFor="username">User</label>
+                    <div className={s.containerInput}>
+                        <div>
+                            <i className="fas fa-user"></i>
+                            <input onChange={e=>handleChange(e)} type="text" name="username" id="username" placeholder='Username' required/>
+                        </div>
+                        <span className={s.error}>{error.username }</span>
                     </div>
-                    <span className={s.error}>{error.username }</span>
-                </div>
-                <label htmlFor="password">Password</label>
-                <div className={s.containerInput}>
-                    <div>
-                        <i className="fas fa-lock"></i>
-                        <input onChange={e=>handleChange(e)} type="password" name="password" id="password" placeholder='password' required/>
+                    <label htmlFor="password">Password</label>
+                    <div className={s.containerInput}>
+                        <div>
+                            <i className="fas fa-lock"></i>
+                            <input onChange={e=>handleChange(e)} type="password" name="password" id="password" placeholder='password' required/>
+                        </div>
+                        <span className={s.error}>{error.password}</span>
                     </div>
-                    <span className={s.error}>{error.password}</span>
-                </div>
-                <div>
-                    <input type="submit" id={s.submitForm} value="Log In" />
-                </div>
+                    <div>
+                        <input type="submit" id={s.submitForm} value="Log In" />
+                    </div>
+                {logged && (<Navigate  replace to="/form" />)}
                 </form>
-                {loggedIn && <Navigate to="/form"/>}
            </div>
         </div>
     )

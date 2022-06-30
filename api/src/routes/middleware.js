@@ -16,18 +16,9 @@ async function pokemonInfo (url){
         defense: obj.stats[2].base_stat,
         speed: obj.stats[5].base_stat, 
         Types: obj.types.map( el=>{return{ name:el.type.name}}),
-        img: obj.sprites.front_default
+        img: obj.sprites.other.dream_world.front_default
     }
     return pokemonDetail
-    //! Retorna:
-    // {
-    //     "id": 1,
-    //     "name": "bulbasaur",
-    //     "height": 7,
-    //     "weight": 69,
-    //     "type": "grass",
-    //     "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
-    // }
 }
 
 async function getAPIpokemons (){

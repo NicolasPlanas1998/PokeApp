@@ -35,7 +35,6 @@
   text-align: center;
   width: 50px;
   padding: 1px;
-  /* border-radius: 30px; */
   border: 2px solid #0c2c47;;
 }
 .labelHigher{
@@ -53,6 +52,7 @@
 
 .formAZ label:hover {
   cursor: pointer;
+  color: white;
 }
 
 .formAZ input#higher:checked+label {

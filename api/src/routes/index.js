@@ -31,7 +31,7 @@ router.get("/pokemons", async(req,res)=>{
 // Debe traer solo los datos pedidos en la ruta de detalle de pokemon
 router.get("/pokemons/:id", async (req,res)=>{
     const {id} = req.params
-    const pokemons = await getAll() //!DEBERIA SER ALLPOKEMONS, LO MODIFICO CUANDO ARREGLE LA DB
+    const pokemons = await getAll() 
     try {
         const pokemonById = pokemons.filter(el => el.id === parseInt(id))
         if(pokemonById.length) {
@@ -61,7 +61,6 @@ router.get("/types", async(req,res)=>{
     })
     res.send(allTypes)
 })
-
 
 // [ ] POST /pokemons:`
 // Recibe los datos recolectados desde el formulario controlado de la ruta de creación de pokemons por body

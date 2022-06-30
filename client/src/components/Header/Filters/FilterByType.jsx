@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getTypes, searchPokemon } from "../../../actions"
+import { searchPokemon,getTypes } from "../../../actions"
 import s from './filters.module.css'
 
 export function FilterByType(){
@@ -8,7 +8,7 @@ export function FilterByType(){
 
     useEffect(()=>{
         dispatch(getTypes())
-    },[])
+    },[dispatch])
     const types = useSelector(state => state.allTypes)
     const pokemons = useSelector(state => state.allPokemons)
 

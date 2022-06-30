@@ -154,14 +154,19 @@
     cursor: pointer;
     padding: 9px;
 }
-
+.link{
+    text-decoration: none;
+    color: white;
+}
+.link:hover{
+    color: rgba(0, 0, 0, 0.499);
+}
 .none{
     display: none;
 }
 .flex{
     display: flex;
 }
-
 .error{
     padding-bottom: 7px;
     color: red;

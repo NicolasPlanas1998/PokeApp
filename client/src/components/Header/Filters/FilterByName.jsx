@@ -37,13 +37,13 @@ export function FilterByName(){
     }
     return(
         <div>
-            <form class={s.formAZ}>
+            <form className={s.formAZ}>
                 <input type="radio" onClick={AtoZ} id={s.higher} name="yc-form-switch" value="yes"  />
-                    <label for={s.higher} className={s.labelHigher}>
+                    <label htmlFor={s.higher} className={s.labelHigher}>
                         <i className="fas fa-sort-alpha-up"></i>
                     </label>
                 <input type="radio" onClick={ZtoA}id={s.lower} name="yc-form-switch" value="no" />
-                    <label for={s.lower} className={s.labelLower}>
+                    <label htmlFor={s.lower} className={s.labelLower}>
                         <i className="fas fa-sort-alpha-down-alt"></i>
                     </label>
             </form>

@@ -1,0 +1,56 @@
+/* Cards */
+.containerCards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+/* Pages  */
+.containerPages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerPages > div{
+    background-color: #083810;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.page{
+    height: 30px;
+    width: 40px;
+    background-color: #083810;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+
+    box-shadow: none;
+    border: none;
+}
+.page:hover{
+    cursor: pointer;
+}
+.move{
+    color: rgb(255, 255, 255);
+    border-radius: 10px 0 0 10px;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    font-weight: bolder;
+    background-color: transparent;
+}
+.move:hover{
+    cursor: pointer;
+}
+
+.containerGif{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+.gif{
+    width: 150px;
+    text-align: center;
+}

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { postPokemon } from "../../actions"
 import s from './form.module.css'
+import { Header } from "../Header/Header"
 
 export function Form(){
 
@@ -20,10 +21,13 @@ export function Form(){
     })
     function handleValue(e){
         if(e.target.name === "type"){
-                setValue({
-                    ...value,
-                    Types: [...value.Types, e.target.value]
-                })
+                console.log(e.target.checked)
+                if(e.target.checked){
+                    setValue({...value, Types: [...value.Types, e.target.value]})
+                }else{
+                    let checkedTypes = (value.Types).filter(el => el !== e.target.value)
+                    setValue({...value, Types: checkedTypes })
+                }
         }else{
             setValue({
                    ...value,
@@ -31,17 +35,28 @@ export function Form(){
                })   
         }
     }
+    
+    function validate(input){
+        let errors = {}
+        if(value.Types.length <= 0) errors.type = "Please select at least one type"
 
+    }
     function handleSubmit(e){
         e.preventDefault()
-        dispatch(postPokemon(value))
+        console.log(value.Types.length <= 0)
+        value.name = value.name.toLowerCase()
+        console.log(value)
+        // dispatch(postPokemon(value))
+
     }
 
     return(
+        <>
+        <Header/>
         <div className={s.form}>
             <h1>Build your pokemon</h1>
             <form onSubmit={e=>handleSubmit(e)}>
-            <input onChange={e=>handleValue(e)} className={s.name}type="text" name="name" id="name" placeholder="Name" required />
+            <input onChange={e=>handleValue(e)} className={s.name} type="text" name="name" id="name" placeholder="Name" required />
                 <div className={s.inputs}>
                     <fieldset className={s.stats}>
                         <legend>Stats</legend>
@@ -89,5 +104,6 @@ export function Form(){
             <input className={s.formBtn} type="submit"  value="Create"/>
             </form>
         </div>
+    </>
     )
 }
