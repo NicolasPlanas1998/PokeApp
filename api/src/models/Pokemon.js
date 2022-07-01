@@ -20,6 +20,9 @@ module.exports = (sequelize) => {
     attack:{
       type: DataTypes.FLOAT
     },
+    img:{
+      type: DataTypes.TEXT,
+    },
     defense:{
       type: DataTypes.FLOAT
     },

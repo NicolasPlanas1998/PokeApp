@@ -3,7 +3,8 @@ import { useEffect } from 'react'
 import {useSelector,useDispatch } from 'react-redux'
 import {Card}  from './Card/Card'
 import { getPokemons } from '../../actions'
-import loading from '../../images/loadingCards.gif'
+import { Loading } from '../Loading/Loading'
+// import loading from '../../images/loadingCards.gif'
 
 export function Cards() {
     const dispatch = useDispatch()
@@ -44,7 +45,7 @@ export function Cards() {
             </div>
             :
             <div className={s.containerGif}>
-                <img className={s.gif} src={loading} alt="Loading.."/>
+                <Loading/>
             </div>
             }
         </>
