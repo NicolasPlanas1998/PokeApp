@@ -1,27 +1,58 @@
 .form{
     text-align: center;
+    margin-top: 20px;
+}
+.bodyForm{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
 }
 .form h1{
     text-align: center;
     font-weight: bold;
-    background:linear-gradient(90deg, #9e5efe, #286ea1df, #7c27adb3);
-    background-size: 400% 400%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #00465e;
+    padding: 25px;
+    text-decoration: underline;
+}
+.numbers{
+    width: 100px;
+}
+
+.step{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation: gradient 9s ease infinite;
-    transition: 0.3s;
+    width: 300px;
+    display: grid;
+    grid-template-rows: 100px auto;
+    justify-items: center;
 }
-.name{
+.stepOne{
+    grid-template-rows: 100px 50px auto;
+    align-items: flex-start;}
+.stepOne h2{
+    padding-bottom: 10px;
+}
+
+.stepThree{
+    grid-template-rows: 100px 50px auto;
+    justify-items: flex-start;
+}
+.stepThree img  {
+ margin-left: 50px;
+}
+.stepThree h2  {
+    margin-left: 70px;
+   }
+
+.basics{
     text-align: center;
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
-    background-color: rgba(64, 103, 243, 0.157);
+    background-color: #1cbcf194;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border: none;
     color: #2b61f6;
@@ -30,20 +61,24 @@
     border-radius: 15px;
     transition: .5s;
 } 
-.name:hover{
+.basics:hover{
     box-shadow: none;
     background-color: rgba(64, 103, 243, 0.245);
 }
-.inputs{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-}
 
 /* STATS */
+
 .stats{
-    width: 230px;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+h4{
+    padding: 0;
+    margin: 0;
+    border: 2px solid red;
 }
 legend{
     font-size: large;
@@ -69,26 +104,29 @@ fieldset{
     display: grid;
     text-align: start;
     margin: 6px;
-    justify-content: flex-end;
-    align-items: flex-end;
+    width: 150px;
+    justify-items: center;
+    align-items: center;
     grid-template-rows:1fr 1fr;
     grid-template-columns: 1fr ;
-    justify-content: flex-end;
-    align-items: flex-end;
     font-weight: bold;
 }
-.stats div span{
-    grid-area: 1/2 ;
+.stats span{
+    color: #0275ff;
 }
 /* TYPES */
 .types{
-    width: 160px;
-    height: 315px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 200px;
     text-align: start;
 }
 .types div{
     font-weight: bold;
     padding: 2.5px;
+    margin: 5px;
 }
 .types div label {
     margin-left: 2px;
@@ -112,4 +150,7 @@ fieldset{
 .formBtn:hover{
     cursor: pointer;
    
+}
+.err{
+    color: red;
 }
