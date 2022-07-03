@@ -1,0 +1,123 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+}
+.back{
+    border: 2px solid black;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    /* margin-right: 90%; */
+    /* margin-top: ; */
+}
+.back i {
+    font-size: 3rem;
+    color: rgb(28, 28, 106);
+}
+.card{
+    display: flex;
+    padding-left: 20px;
+    padding-right: 10px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    height: 500px;
+    border-radius: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.card h1{
+    text-transform: uppercase;
+}
+.cardInfo{
+    display: grid;
+    grid-template-areas: 
+    "img stats"
+    "img texts";
+    grid-template-columns: 400px auto;
+    grid-template-rows: 1fr 1fr;
+    
+}
+.cardInfo img{
+    width: 350px;
+    grid-area: img;
+}
+.stats{
+    grid-area: stats;
+    display: flex;
+    flex-direction: column;
+}
+.iconStats{
+    font-size: 18px;
+    margin-top: 4px;
+}
+.heart{
+    color: rgb(161, 16, 16);
+}
+.defense{
+    color: rgb(205, 185, 73);
+}
+.containerSword span{
+    font-size: larger;
+    margin-left: 3px;
+    color: rgb(216, 209, 209);
+}
+.sword{
+    /* width: 1p */
+    height: 22px;
+    width: 22px!important;
+}
+.cardInfo p{
+    grid-area: texts;
+    word-spacing: 2px;
+    padding-right: 3px;
+    font-weight: bold;
+}
+.water{
+    background-image: url(../../images/water.jpg);
+}
+.water p{
+    color: rgb(2, 0, 0);
+    backdrop-filter: blur(5px);
+}
+.normal{
+    background-image: url(../../images/sky.jpg)
+}
+.ground{
+    background-image: url(../../images/ground.webp)
+}
+.poison{
+    background-image: url(../../images/poision.jpeg)
+}
+
+.bug h1{
+    color: rgb(222, 222, 222);
+}
+.bug{
+    background-image: url(../../images/bugs.jpg)
+};
+
+.grass h1,p {
+    color: white;
+}
+.fire{
+    background-image: url(../../images/bg-fire.jpeg)
+}
+.fire h1,p {
+    color: white;
+}
+.grass{
+    background-image: url(../../images/bg-grass.jpeg)
+}
+
+.electric{
+    background-image: url(../../images/electric.jpg)
+};
+
