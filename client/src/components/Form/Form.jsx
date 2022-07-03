@@ -28,7 +28,6 @@ export function Form(){
     })
     function handleValue(e){
         if(e.target.name === "type"){
-                console.log(e.target.checked)
                 if(e.target.checked){
                     setValue({...value, Types: [...value.Types, e.target.value]})
                 }else{
@@ -51,7 +50,7 @@ export function Form(){
         if(!(value.img).includes("https://")) errors["url"] = "Please insert a correct URL"
         if(value.name){
             let alreadyExist = pokemons.filter(el=> el.name === value.name)
-            if(alreadyExist) errors["name"] = "Thhis name already exist"
+            if(alreadyExist.length) errors["name"] = "This name already exist"
         }
         return errors
         
@@ -59,12 +58,22 @@ export function Form(){
     function handleSubmit(e){
         e.preventDefault()
         value.name = value.name.toLowerCase()
-        console.log(value)
         let err = validate({...value,
             [e.target.name]: e.target.value})
         setError(err)
         if(!Object.keys(err).length){
             dispatch(postPokemon(value))
+            setValue({
+                name:'', 
+                life: 0,
+                attack: 0,
+                defense:50,
+                speed:50,
+                height:50,
+                weight:50,
+                img:'',
+                Types:[]
+            })
             alert("Posted")
         }
 
@@ -83,9 +92,9 @@ export function Form(){
                             <h2>Information</h2>
                             <div>
                                 {error.name && <span className={s.err}>{error.name}</span>}
-                                <input onChange={e=>handleValue(e)} className={s.basics} type="text" name="name" id="name" placeholder="Name" required />
+                                <input onChange={e=>handleValue(e)} className={s.basics} type="text" name="name" id="name" placeholder="Name" value={value.name}required />
                                 {error.url && <span className={s.err}>{error.url}</span>}
-                                <input onChange={e=>handleValue(e)} className={s.basics} type="text" name="img" placeholder="Image URL" required />
+                                <input onChange={e=>handleValue(e)} className={s.basics} type="text" name="img" placeholder="Image URL" value={value.img} required />
                             </div>
                         </div>
                         <div className={`${s.step} ${s.stepTwo}`}>
@@ -94,30 +103,30 @@ export function Form(){
                             <div className={s.stats}>
                                 <div>
                                     <label htmlFor="life">Life:  <span>{value.life}</span> </label>
-                                    <input onChange={e=>handleValue(e)} type="range" name="life" id="life" min="1" max="150" />
+                                    <input onChange={e=>handleValue(e)} type="range" name="life"  min="1" max="150" value={value.life}/>
                                 </div>
                                 <div>
                                     <label htmlFor="attack">Attack: <span>{value.attack}</span></label>
-                                    <input onChange={e=>handleValue(e)} type="range" name="attack" id="attack" min="1" max="150" />
+                                    <input onChange={e=>handleValue(e)} type="range" name="attack" min="1" max="150" value={value.attack} />
                                 </div>
                                 <div>
                                     <label htmlFor="defense">Defense:  <span>{value.defense}</span></label>
-                                    <input onChange={e=>handleValue(e)} type="range" name="defense" id="defense" min="1" max="150" />
+                                    <input onChange={e=>handleValue(e)} type="range" name="defense"  min="1" max="150" value={value.defense} />
 
                                 </div>
                                 <div>
                                     <label htmlFor="speed">Speed: <span>{value.speed}</span></label>
-                                    <input onChange={e=>handleValue(e)} type="range" name="speed" id="speed" min="1" max="150" />
+                                    <input onChange={e=>handleValue(e)} type="range" name="speed" min="1" max="150" value={value.speed} />
 
                                 </div>
                                 <div>
                                     <label htmlFor="height">Height:  <span>{value.height}</span></label>
-                                    <input onChange={e=>handleValue(e)} type="range" name="height" id="height" min="1" max="150" />
+                                    <input onChange={e=>handleValue(e)} type="range" name="height"  min="1" max="150" value={value.height} />
 
                                 </div>
                                 <div>
                                     <label htmlFor="weight">Weight:  <span>{value.weight}</span> </label>
-                                    <input onChange={e=>handleValue(e)} type="range" name="weight" id="weight" min="1" max="150" />
+                                    <input onChange={e=>handleValue(e)} type="range" name="weight" min="1" max="150"  value={value.weight}/>
                                 </div>
                             </div>
                         </div>
@@ -127,8 +136,8 @@ export function Form(){
                             {error.type && <span className={s.err}>{error.type}</span>}
                             <div className={s.types}>
                                 {types.map(el=>(
-                                    <div key={el+"form"}>
-                                        <input onChange={e=>handleValue(e)} type="checkbox" value={el}   name="type" />
+                                    <div key={el+" input"}>
+                                        <input onChange={e=>handleValue(e)} type="checkbox" value={el} name="type" />
                                         <label htmlFor={el}>{el}</label>
                                     </div>
                                 ))}

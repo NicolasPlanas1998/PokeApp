@@ -1,12 +1,9 @@
-*{
-    
-}
 .bg{
     background-image: url('./images/bg.png');
     background-color: #cccccc; 
     min-height: 100vh;
     height: auto; /* You must set a specified height */
-    width: 100vw;
+    width: 100%;
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */

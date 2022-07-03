@@ -1,3 +1,4 @@
+import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { searchPokemon } from "../../../actions/index"
 import s from './filters.module.css'
@@ -5,12 +6,13 @@ import s from './filters.module.css'
 export function FilterByName(){
     const dispatch = useDispatch()
     const pokemons =  useSelector(state => state.allPokemons)
-    const {filter} =  useSelector(state => state.filterSearch)
+    const {filter,creator} =  useSelector(state => state.filterSearch)
     
     let pokemonsToOrder = []
 
     function AtoZ(){
-        if(filter.length) pokemonsToOrder = filter
+        if(creator)pokemonsToOrder = creator
+        else if(filter.length) pokemonsToOrder = filter
         else pokemonsToOrder = pokemons
         let pokemonsOrdered = pokemonsToOrder.sort(function (a,b){
                 if(b.name > a.name){
@@ -20,7 +22,7 @@ export function FilterByName(){
                     return 1
                 }return 0
             })
-        dispatch(searchPokemon(pokemonsOrdered))
+        dispatch(searchPokemon({filterObj:pokemonsOrdered}))
     }
     function ZtoA(){
         if(filter.length) pokemonsToOrder = filter
@@ -33,7 +35,7 @@ export function FilterByName(){
                     return -1
                 }return 0
             })
-        dispatch(searchPokemon(pokemonsOrdered))
+        dispatch(searchPokemon({filterObj:pokemonsOrdered}))
     }
     return(
         <div>

@@ -4,7 +4,6 @@ import {useSelector,useDispatch } from 'react-redux'
 import {Card}  from './Card/Card'
 import { getPokemons } from '../../actions'
 import { Loading } from '../Loading/Loading'
-// import loading from '../../images/loadingCards.gif'
 
 export function Cards() {
     const dispatch = useDispatch()
@@ -15,11 +14,13 @@ export function Cards() {
 
 
     let renderCards = (useSelector(state => state.allPokemons)).slice(0,12)
-    let {filter,page} = useSelector(state => state.filterSearch)
+    let {filter,page,creator} = useSelector(state => state.filterSearch)
 
     
     if(page && page.length)renderCards = page
+    else if(creator) renderCards =  creator
     else if(filter.length) renderCards = filter.slice(0,12)
+
     
 
     return (

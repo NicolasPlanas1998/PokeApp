@@ -7,15 +7,17 @@ export function Pages(){
 
     const [actualPage, setActualPage] = useState(1)
     const allPokemons =  useSelector(state => state.allPokemons)
-    const {filter} = useSelector(state => state.filterSearch)
+    const {filter,creator} = useSelector(state => state.filterSearch)
+
     const dispatch = useDispatch()  
     let pages = []
     let pokemons = []
     
-    if(filter.length) pokemons = filter
+    if(creator) pokemons = creator
+    else if(filter.length) pokemons = filter
     else{ pokemons = allPokemons}
 
-    //! Total pages  
+    // Total pages  
     const totalPages = Math.ceil((pokemons.length) /12)
     for(let i = 1; totalPages >= i;i++){
         pages.push(<input className={s.page} key={i} type="button" onClick={e=>handlePages(e)} value={i} />)
@@ -32,7 +34,10 @@ export function Pages(){
         let firstIndex = (pageNumber * 12) - 12 
         let lastIndex = pageNumber * 12
         let pokemonsPerPage = pokemons.slice(firstIndex,lastIndex)
-        if(actualPage >= 1 && actualPage <= totalPages)dispatch(searchPokemon(filter,pokemonsPerPage))
+        if(actualPage >= 1 && actualPage < totalPages){dispatch(searchPokemon({
+            filterObj: filter,
+            pageObj: pokemonsPerPage
+        }))}
     }
     function handlePages(e){
         let pageNumber = e.target.value
@@ -40,7 +45,10 @@ export function Pages(){
         let firstIndex = (pageNumber * 12) - 12 
         let lastIndex = pageNumber * 12
         let pokemonsPerPage = pokemons.slice(firstIndex,lastIndex)
-        dispatch(searchPokemon(filter,pokemonsPerPage))
+        dispatch(searchPokemon({
+            filterObj: filter,
+            pageObj: pokemonsPerPage
+        }))
     }
      return(
          <div className={s.containerPages}>

@@ -16,15 +16,15 @@ export function FilterByType(){
         const selected = e.target.value
         let pokemonsByType = []
 
-        if(selected === "all"){dispatch (searchPokemon([],[]))}
-        else{
+        if(selected === "all"){dispatch (searchPokemon({filterObj: {}}))
+        }else{
             pokemons.forEach(el=>{
                 for(let i=0; el.Types.length > i; i++){
                     if(el.Types[i].name === selected){
                         pokemonsByType.push(el)
                     }}
                 })
-            dispatch(searchPokemon(pokemonsByType))
+            dispatch(searchPokemon({filterObj:pokemonsByType}))
         }
     }
     return(

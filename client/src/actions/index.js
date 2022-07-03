@@ -1,6 +1,6 @@
 export const GET_POKEMONS = "GET_POKEMONS"
 export const GET_TYPES = "GET_TYPES"
-export const FILTER_SEARCH = "FILTER_SEARCH"
+export const FILTERS = "FILTERS"
 export const LOG = "LOG"
 
 export function getPokemons() { 
@@ -10,15 +10,15 @@ export function getPokemons() {
             .then(json => dispatch({ type: GET_POKEMONS, payload: json }));
         };
 }
-export function searchPokemon(filterObj,pageObj){   
+export function searchPokemon(obj){   
     return{
-        type: FILTER_SEARCH,
-        payload: {
-            filter: filterObj,
-            page: pageObj
-        }
+        type: FILTERS,
+        filter: obj.filterObj,
+        page: obj.pageObj,
+        creator: obj.creatorObj
     }
 }
+
 export function getTypes(){
     return function(dispatch){
         return fetch("http://localhost:3001/types" )

@@ -18,7 +18,7 @@ export function FilterByAttack(){
             let pokemonsOrdered = pokemonsToOrder.sort(function (a,b){
                     return  b.attack - a.attack 
                 })
-            dispatch(searchPokemon(pokemonsOrdered))
+            dispatch(searchPokemon({filterObj:pokemonsOrdered}))
         }
         if(option === "lower"){
             if(filter.length) pokemonsToOrder = filter
@@ -26,7 +26,7 @@ export function FilterByAttack(){
             let pokemonsOrdered = pokemonsToOrder.sort(function (a,b){
                     return a.attack - b.attack
                 })
-            dispatch(searchPokemon(pokemonsOrdered))
+            dispatch(searchPokemon({filterObj:pokemonsOrdered}))
         }
     }
     return(

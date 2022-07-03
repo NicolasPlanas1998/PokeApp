@@ -15,18 +15,17 @@ export function Search(){
     // 1 Crear nueva action ,
     // 2 Nuevo reducer y traerlo aca 
     function enter(e){
-        // console.log(window.location.href)
         setSearch(e.target.value)
         if(e.code === "Enter"){
             const pokemons = arrPokemons.filter(el=> el.name === search)
             if(!search){
-                dispatch(searchPokemon([],[]))
+                dispatch(searchPokemon({filterObj: {}}))
                 }
             else{
-                if(pokemons.length) dispatch(searchPokemon(pokemons))
+                if(pokemons.length) dispatch(searchPokemon({filterObj:pokemons}))
                 else {
                     alert("Poke no encontrado(Agregar una alerta linda despues)")
-                    dispatch(searchPokemon(pokemons))
+                    dispatch(searchPokemon({filterObj:pokemons}))
                 }
             }
         }

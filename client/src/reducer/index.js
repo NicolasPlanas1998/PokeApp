@@ -1,5 +1,5 @@
 import {GET_POKEMONS,
-        FILTER_SEARCH,
+        FILTERS,
         GET_TYPES,
         LOG
     } from '../actions';
@@ -21,11 +21,13 @@ export default function rootReducer(state = initialState, action){
             return {...state, allTypes: action.payload }
         case LOG:
             return {...state, logIn: action.log }
-        case FILTER_SEARCH:
-            return{...state, filterSearch: {
-                filter: action.payload.filter,
-                page: action.payload.page
-            } }
+        case FILTERS:     
+            return{...state, 
+                filterSearch: {
+                    filter: action.filter,
+                    page: action.page,
+                    creator: action.creator
+                } }
         default:
              return state
     }
