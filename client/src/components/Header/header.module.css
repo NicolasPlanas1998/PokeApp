@@ -172,3 +172,6 @@
     color: red;
     font-size: small;
 }
+.hide{
+    visibility: hidden;
+}

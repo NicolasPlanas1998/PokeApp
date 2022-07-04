@@ -16,12 +16,13 @@ export function Header(){
         if(modal === false) setModal(true)
         else{setModal(false)}
     }
+    let path = (window.location.pathname === "/form" )? "hide" : "show" 
     return(
         <>
             <header className={s.header}>
                     {modal && <Modal/> }
                     <Nav/>
-                <div className={s.inputs}>
+                <div className={`${s.inputs} ${s[path]}`}>
                     <Search/>
                     <Filters />
                 </div>

@@ -10,29 +10,30 @@ export function Search(){
     const [search, setSearch] = useState('')
 
     const arrPokemons = useSelector(state => state.allPokemons)
-    // Se podria hacer tambien con la ruta del back, dejarlo asi por si me lo preguntan
-    // total se arreglarlo:
-    // 1 Crear nueva action ,
-    // 2 Nuevo reducer y traerlo aca 
+
+
     function enter(e){
         setSearch(e.target.value)
-        if(e.code === "Enter"){
-            const pokemons = arrPokemons.filter(el=> el.name === search)
+            const pokemons = arrPokemons.filter(el=> el.name.includes(search))
             if(!search){
                 dispatch(searchPokemon({filterObj: {}}))
-                }
-            else{
-                if(pokemons.length) dispatch(searchPokemon({filterObj:pokemons}))
-                else {
-                    alert("Poke no encontrado(Agregar una alerta linda despues)")
-                    dispatch(searchPokemon({filterObj:pokemons}))
-                }
             }
+            else{
+                if(search.length > 1) dispatch(searchPokemon({filterObj:pokemons}))
+                else {
+                    dispatch(searchPokemon({filterObj:arrPokemons}))
+                }
         }
+    }
+    function handleSearch(){
+         const pokemons = arrPokemons.filter(el=> el.name === search)
+         if(pokemons.length) dispatch(searchPokemon({filterObj:pokemons}))
+         else{alert("Pokemon not found")}
+         
     }
     return(
         <div className={s.containerSearch}>
-            <input onKeyUp={e=>enter(e)} id={s.searcher} name="searcher" type="search" placeholder='Search pokemon '/>
-            <i className="fas fa-search" id={s.iconSearch}></i>
+            <input onChange={e=>enter(e)} id={s.searcher} name="searcher" type="search" placeholder='Search pokemon '/>
+            <i onClick={handleSearch}className="fas fa-search" id={s.iconSearch}></i>
         </div>
     )}

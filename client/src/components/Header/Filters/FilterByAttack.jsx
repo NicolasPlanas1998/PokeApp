@@ -5,24 +5,23 @@ import s from './filters.module.css'
 export function FilterByAttack(){
     const dispatch = useDispatch()
     const pokemons =  useSelector(state => state.allPokemons)
-    const {filter} =  useSelector(state => state.filterSearch)
+    const {filter,creator} =  useSelector(state => state.filterSearch)
     
     let pokemonsToOrder = []
 
     function handleSelected(e){
-
+        if(creator) pokemonsToOrder = creator
+        else if(filter.length) pokemonsToOrder = filter
+        else pokemonsToOrder = pokemons
+        
         let option = e.target.value
         if(option === "higher"){
-            if(filter.length) pokemonsToOrder = filter
-            else pokemonsToOrder = pokemons
             let pokemonsOrdered = pokemonsToOrder.sort(function (a,b){
                     return  b.attack - a.attack 
                 })
             dispatch(searchPokemon({filterObj:pokemonsOrdered}))
         }
         if(option === "lower"){
-            if(filter.length) pokemonsToOrder = filter
-            else pokemonsToOrder = pokemons
             let pokemonsOrdered = pokemonsToOrder.sort(function (a,b){
                     return a.attack - b.attack
                 })
