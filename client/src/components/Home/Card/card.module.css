@@ -62,8 +62,9 @@
     background-image: url('../../../images/water.jpg')
 }
 #water .containerStats{
-    color: rgb(63, 65, 164);
-    backdrop-filter: blur(2px);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+
 }
 #water .impStats{
    color: rgb(63, 65, 164);

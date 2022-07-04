@@ -6,10 +6,11 @@ import sword from '../../../images/swordsIcon.png'
 
 export function Card({name, id, life, img,weight, type, attack,speed,defense,height}){
 
-    let typeId = type[0].name
+ 
+    if(type.length)  var typeId = type[0].name 
 
     return(
-        <Link to={"/home/"+name} className={s.link}>
+        <Link to={"/home/"+name } className={s.link}>
             <div className={s.card} id={s[typeId]} key={id}>
                 <h5 className={s.titlePokemom}>{name}</h5>
                 <div className={s.impStats}>
@@ -44,7 +45,7 @@ export function Card({name, id, life, img,weight, type, attack,speed,defense,hei
                     </div>    
                     <div >
                        <p><i className={`${s.iconStats} fas fa-layer-group`}></i>Type: </p>
-                        {type?type.map(t=>{
+                        {type ?type.map(t=>{
                             let typeHtml =  t.name + " "
                             return ( typeHtml)
                         }
