@@ -22,7 +22,6 @@ router.get("/pokemons", async(req,res)=>{
         res.status(400).send(error) 
     }
 })
-
 // [ ] GET /pokemons/{idPokemon}:
 router.get("/pokemons/:id", async (req,res)=>{
     const {id} = req.params
