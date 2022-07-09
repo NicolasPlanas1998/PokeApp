@@ -3,11 +3,14 @@
 
 # Pokemon App
 
-## Available Scripts
+## About The App
 
--✅ API used - https://pokeapi.co/ 
--✅ API used - https://pokeapi.co/ 
+Is an app where you can find any existing pokemon with their characteristics. \
+Also you will be able to login: 
+- Username: SoyHenry 
+- password: 123456 
 
+Once you are logged you can create your own pokemons
 
 ## Available Scripts
 
