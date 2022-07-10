@@ -5,7 +5,7 @@
 
 ## About The App
 
-Is an app where you can find any existing pokemon with their characteristics. \
+Is an app where you can find angity existing pokemon with their characteristics. \
 Also you will be able to login: 
 - Username: SoyHenry 
 - password: 123456 

@@ -8,9 +8,12 @@ import three from '../../images/three.png'
 import { Header } from "../Header/Header"
 import { Loading } from "../Loading/Loading"
 import { Card } from "../Home/Card/Card"
+import Swal from 'sweetalert2'
+
+
 
 export function Form(){
-
+    
     const dispatch = useDispatch()
     const types = useSelector(state => state.allTypes)
     const pokemons = useSelector(state => state.allPokemons)
@@ -76,9 +79,14 @@ export function Form(){
                 img:'',
                 Types:[]
             })
-            alert("Posted")
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your Pokemon has been created',
+                showConfirmButton: false,
+                timer: 1500
+              })
         }
-
     }
 
     return(

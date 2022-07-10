@@ -2,6 +2,7 @@ import {React,useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchPokemon } from '../../actions'
 import s from './header.module.css' 
+import Swal from 'sweetalert2'
 
 
 export function Search(){
@@ -28,7 +29,13 @@ export function Search(){
     function handleSearch(){
          const pokemons = arrPokemons.filter(el=> el.name === search)
          if(pokemons.length) dispatch(searchPokemon({filterObj:pokemons}))
-         else{alert("Pokemon not found")}
+         else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "We could't find that pokemon!"
+              })
+         }
          
     }
     return(
