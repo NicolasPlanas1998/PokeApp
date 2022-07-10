@@ -20,7 +20,6 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [https://shimmering-ganache-d84059.netlify.app/](https://shimmering-ganache-d84059.netlify.app/) to view it in your browser. \
-Also you should use this command in api folder, if not the data base and the api are not going to run.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
