@@ -22,7 +22,7 @@ async function pokemonInfo (url){
 }
 
 async function getAPIpokemons (){
-    const api = (await axios.get(URL_API+"?limit=2")).data.results
+    const api = (await axios.get(URL_API+"?limit=40")).data.results
     const apiDetail =  api.map( el =>{
         return {
             name : el.name,
