@@ -1,15 +1,18 @@
+import axios from "axios"
 export const GET_POKEMONS = "GET_POKEMONS"
 export const GET_TYPES = "GET_TYPES"
 export const FILTERS = "FILTERS"
 export const LOG = "LOG"
 
 
-export function getPokemons() { 
-    return function(dispatch) {
-        return fetch("http://localhost:3001/pokemons" )
-            .then(response => response.json())
-            .then(json => dispatch({ type: GET_POKEMONS, payload: json }));
-        };
+export  function getPokemons(){
+    return async function (dispatch){
+        const info = await axios.get("/pokemons");
+        return dispatch({
+            type: GET_POKEMONS,
+            payload: info.data 
+        })
+    }
 }
 
 export function searchPokemon(obj){   
@@ -21,20 +24,19 @@ export function searchPokemon(obj){
     }
 }
 
-export function getTypes(){
-    return function(dispatch){
-        return fetch("http://localhost:3001/types" )
-        .then(response => response.json())
-        .then(json => dispatch({ type: GET_TYPES, payload: json }));
-    };
-}
-export function postPokemon(data){
-    return function (){
-        return fetch("http://localhost:3001/pokemons",{
-            method:'POST',
-            headers:{'Content-Type': 'application/json'},
-            body: JSON.stringify(data)
+export  function getTypes(){
+    return async function (dispatch){
+        const info = await axios.get("/types");
+        return dispatch({
+            type: GET_TYPES,
+            payload: info.data 
         })
+    }
+}
+export  function postPokemon(data){
+    return async function (){
+        await axios.post("/pokemons", 
+        data);
     }
 }
 export function log(payload){

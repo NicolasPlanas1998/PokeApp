@@ -67,6 +67,7 @@ export function Form(){
             [e.target.name]: e.target.value})
         setError(err)
         if(!Object.keys(err).length){
+            console.log(value)
             dispatch(postPokemon(value))
             setValue({
                 name:'', 
